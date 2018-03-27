@@ -1,0 +1,66 @@
+<div class="parallax-container">
+        <div class="parallax">
+          <h3 class="white-text center" id="header">Saved Articles</h3>
+          <img src="../public/images/img2.jpg" style="z-index: 0">
+        </div>
+</div>
+
+<div class="section white">
+    <div class="row container">
+        <p class="center-align"><span id="save">{{savedText}}</span></p>
+
+        {{#each savedArts}}
+            <div class="row">
+                <div class="col s12">
+                <div class="card">
+                    <div class="card-content blue white-text">
+                    <span class="card-title">{{title}}</span>
+                    <p class="white-text">{{headline}}</p><br>
+                    <a href="{{link}}" target="_blank"><button class="btn white blue-text">See more...</a>
+                    <form action = "/unsave/{{_id}}" method = "POST">
+                    <input type="hidden" name="link" value={{link}}>
+                    <a href="/saved"><button class="btn red white-text right" id="saved">Delete From Saved</button></a>
+                    </form>
+                    <button data-target="modal{{_id}}" class="btn modal-trigger white blue-text right" id="mdl2" style="margin-right: 2%">Article Notes</button>
+                    </div>
+                </div>
+                </div>
+            </div>
+<div id="modal{{_id}}" class="modal">
+    <div class="modal-content">
+      <h4>Article Notes</h4>
+
+        {{#each notes}}
+        <form action="/saved/remove/{{../_id}}/{{@index}}" method="POST">
+        <input type="hidden" name="deletelink" value={{../link}}>
+        <input type="hidden" name="textnote" value={{this}}>
+        <a class="white blue-text btn-flat right" id="articleNote">{{this}}<button class="btn-small red white-text right"><i class="material-icons">cancel</i></button></a><br><br>
+        </form>
+        {{/each}}
+
+          <div class="row">
+            <div class="input-field col s12">
+              <form action = "/saved/{{_id}}" method = "POST" name="notetext" id="notetxt">
+              <textarea id="notetext" class="materialize-textarea inpt" name="notetxt" form="notetxt"></textarea>
+              <label for="notetext" class="blue-text">Add a note...</label>
+              <input type="hidden" name="savelink" value={{link}}>
+              <a href="/saved"><button class="modal-action modal-close blue white-text btn-flat center" style="width:100%">Add note</button></a>
+            </form>
+            </div>
+          </div>
+      </div>
+
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close white blue-text btn-flat">Cancel</a>
+    </div>
+  </div>
+{{/each}}
+      </div>
+</div>
+
+
+        
+<div class="parallax-container">
+    <div class="parallax"><img src="../public/images/img2.jpg"></div>
+</div>
+

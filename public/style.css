@@ -1,0 +1,10 @@
+.parallax-container {
+    height: 200px;
+  }
+
+#header {
+    position: relative;
+    left: 0px;
+    top: 25%;
+    z-index: 999;
+}

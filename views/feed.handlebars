@@ -1,0 +1,38 @@
+<div class="parallax-container">
+        <div class="parallax">
+          <h3 class="white-text center" id="header">Clickhole Edition</h3>
+          <img src="../public/images/img2.jpg" style="z-index: 0">
+        </div>
+</div>
+    
+<div class="section white">
+    <div class="row container">
+        <h3 class="header blue-text">Top Articles</h3>
+        <p class="center-align"><span id="save">{{feedText}}</span></p>
+
+        {{#each articles}}
+
+            <div class="row">
+                <div class="col s12">
+                <div class="card">
+                    <div class="card-content blue white-text">
+                    <span class="card-title">{{title}}</span>
+                    <p class="white-text">{{headline}}</p><br>
+                    <a href="{{link}}" target="_blank"><button class="btn white blue-text">See more...</a>
+                    <form action = "/save/{{_id}}" method = "POST">
+                    <input type="hidden" name="link" value={{link}}>
+                    <a href="/"><button class="btn white blue-text right" id="saved">Save article</button></a>
+                    </form>
+                    </div>
+                </div>
+                </div>
+            </div>
+
+        {{/each}}
+
+      </div>
+</div>
+
+<div class="parallax-container">
+    <div class="parallax"><img src="../public/images/img2.jpg"></div>
+</div>

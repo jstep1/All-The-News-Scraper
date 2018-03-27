@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>All The News Scraper</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- Compiled and minified CSS -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
+    <link rel="stylesheet" type="text/css" media="screen" href="/public/style.css"/>
+</head>
+<body>
+
+    <div class="container-fluid">
+	<div class="navbar">
+            <nav>
+                <div class="nav-wrapper white">
+                <a href="#!" class="brand-logo blue-text"><h4>All The News Scraper</h4></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a class="blue-text" href="/">Home</a></li>
+                    <li><a class="blue-text" href="/saved">Saved Articles</a></li>
+                    <li><a href="/scrape" class="waves-effect waves-light btn blue white-text modal-trigger" id="mdl1">Scrape New Articles!</a></li>
+                </ul>
+                </div>
+            </nav>
+            
+    </div>
+    </div>
+
+    {{{body}}}
+
+    <div class="container-fluid">
+    <footer>
+        <p class="center blue-text">Copyright © 2018 All The News Scraper</p>
+    </footer>
+    </div>
+
+  <!-- Modal Structure -->
+  <div id="modal1" class="modal">
+    <div class="modal-content">
+      <h4><span id="alt">Added {{newarticles}} New Articles!</span></h4>
+    </div>
+    <div class="modal-footer">
+      <a href="#!" class="modal-action modal-close waves-effect waves-green btn-flat">Close</a>
+    </div>
+  </div>
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+    <script src="/public/app.js"></script>
+    <script>
+        $(document).ready(function() {
+                
+                if(!{{newview}}) {
+                $('.modal').modal();
+                $('#modal1').modal('open');
+                }
+
+                $("#mdl2").on("click", function() {
+                    $('.modal').modal();
+                    $('#modal2').modal('open');
+                })
+
+                if({{newarticles}} === 0) {
+                    $("#alt").text("No new articles added.");
+                }
+                
+                $('.modal').modal();
+
+        });
+         
+    </script>
+
+</body>
+
+</html>
