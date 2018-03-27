@@ -41,9 +41,6 @@ db.on("error", function(error) {
 
 var results = [];
 var count = 0;
-app.locals.savedText = "Save some articles!";
-app.locals.feedText = "Add some articles!";
-app.locals.newsNotes = "No notes for this article yet."
 app.locals.art_id = [];
 
 // Main feed route
@@ -125,7 +122,6 @@ app.get("/scrape", function(req, res) {
 app.get("/saved", function(req, res) {
     db.news.find({"following": 1}, function(err, found) {
         if (err) throw err;
-        console.log(found);
         res.render("saved", {"savedArts" : found})
     })
 })
@@ -134,7 +130,7 @@ app.get("/saved", function(req, res) {
 
 app.post("/saved/:artid", function(req, res) {
     var link = req.body.savelink;
-    var notetxt = req.body.notetxt;
+    var notetxt = req.body.banana;
     console.log(notetxt);
     db.news.update({"following" : 1, "link" : link}, {$push : {"notes" : notetxt}}, function(err, found) {
         if (err) throw err;
@@ -156,7 +152,6 @@ app.post("/save/:artid", function(req, res) {
 
 app.post("/unsave/:artid", function(req, res) {
     var link = req.body.link;
-    app.locals.savedText = "Save some articles!";
     db.news.update({"link" : "" + link + ""}, {$set: {"following" : 0}});
     res.redirect("/saved");
 })
@@ -175,9 +170,6 @@ app.post("/saved/:artid", function(req, res) {
 app.post("/saved/remove/:artid/:noteid", function(req, res) {
     var link = req.body.deletelink;
     var note = req.body.textnote;
-    if (!app.locals.art_id.includes(req.body.artId)) {
-    app.locals.art_id.push(req.body.artId);
-    }
     console.log(note)
     db.news.update({"link" : "" + link + ""}, {$pull: {"notes": note}})
     res.redirect("/saved");

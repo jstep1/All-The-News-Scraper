@@ -7,7 +7,6 @@
 
 <div class="section white">
     <div class="row container">
-        <p class="center-align"><span id="save">{{savedText}}</span></p>
 
         {{#each savedArts}}
             <div class="row">
@@ -33,16 +32,16 @@
         {{#each notes}}
         <form action="/saved/remove/{{../_id}}/{{@index}}" method="POST">
         <input type="hidden" name="deletelink" value={{../link}}>
-        <input type="hidden" name="textnote" value={{this}}>
-        <a class="white blue-text btn-flat right" id="articleNote">{{this}}<button class="btn-small red white-text right"><i class="material-icons">cancel</i></button></a><br><br>
+        <input type="hidden" name="textnote" value="{{this}}">
+        <a class="white blue-text right" id="articleNote">{{this}}<button class="btn-small red white-text right"><i class="material-icons">cancel</i></button></a><br><br>
         </form>
         {{/each}}
 
           <div class="row">
             <div class="input-field col s12">
-              <form action = "/saved/{{_id}}" method = "POST" name="notetext" id="notetxt">
-              <textarea id="notetext" class="materialize-textarea inpt" name="notetxt" form="notetxt"></textarea>
-              <label for="notetext" class="blue-text">Add a note...</label>
+              <form action = "/saved/{{_id}}" method = "POST" name="note" id="notetxt">
+              <textarea id="notetext" class="materialize-textarea inpt" name="banana"></textarea>
+              <label for="note" class="blue-text">Add a note...</label>
               <input type="hidden" name="savelink" value={{link}}>
               <a href="/saved"><button class="modal-action modal-close blue white-text btn-flat center" style="width:100%">Add note</button></a>
             </form>
@@ -64,3 +63,10 @@
     <div class="parallax"><img src="../public/images/img2.jpg"></div>
 </div>
 
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script>
+<script>
+  $(document).ready(function(){
+    $('.modal').modal();
+  });
+</script>
