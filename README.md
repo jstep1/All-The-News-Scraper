@@ -1,6 +1,8 @@
 # All-The-News-Scraper
 Welcome to All The News Scraper! This application was built to scrape article information from Clickhole and display it for the user to get a glimpse of newest news articles from their site.
 
+https://all-the-news-scraper.herokuapp.com/
+
 <p align="center">
 <img src = "./public/images/allthenews.png">
 </p>
