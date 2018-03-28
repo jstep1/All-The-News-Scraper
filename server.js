@@ -1,7 +1,7 @@
 // Dependencies
 var express = require("express");
 var mongojs = require("mongojs");
-var mongoose = require("mongoose")
+var mongoose = require("mongoose");
 var bodyParser = require("body-parser");
 // Require request and cheerio. This makes the scraping possible
 var request = require("request");
@@ -28,7 +28,7 @@ app.engine("handlebars", hbs.engine);
 app.set("view engine", "handlebars");
 
 // Database configuration
-var databaseUrl = "newsapp";
+var databaseUrl = process.env.MONGODB_URI || "mongodb://localhost/newsapp";
 var collections = ["news"];
 
 // Hook mongojs configuration to the db variable
@@ -180,5 +180,5 @@ app.post("/saved/remove/:artid/:noteid", function(req, res) {
 var port = process.env.PORT || 3000;
 app.listen(port, function(error){
     if (error) throw error;
-    console.log('Connected.')
+    console.log('Connected on port ' + port);
 });
