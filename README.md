@@ -4,7 +4,7 @@ Welcome to All The News Scraper! This application was built to scrape article in
 https://all-the-news-scraper.herokuapp.com/
 
 <p align="center">
-<img src = "./public/images/allthenews.png" style="height: 50%; width: 50%">
+<img src = "./public/images/allthenews.png">
 </p>
 
 All The News Scraper lets the user to see the title and headline of the article, view the original source, save articles for later and add/remove notes for each item.
