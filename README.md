@@ -1,11 +1,11 @@
 # All-The-News-Scraper
 Welcome to All The News Scraper! This application was built to scrape article information from Clickhole and display it for the user to get a glimpse of newest news articles from their site.
 
-<img src = "images/allthenews.png">
+<img src = "./public/images/allthenews.png">
 
 All The News Scraper lets the user to see the title and headline of the article, view the original source, save articles for later and add/remove notes for each item.
 
-![allthenews](images/allthenews.gif)
+![allthenews](./public/images/allthenews.gif)
 
 # About This App
 This application was built using HTML5 (Handlebars), CSS3 (Materialize), Javascript (jQuery and Node.JS) and MongoDB. Deployed on Heroku for public use. Please see the source code for more information.
