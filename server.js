@@ -185,7 +185,8 @@ app.post("/saved/remove/:artid/:noteid", function(req, res) {
 
 
 // Listen on port 3000
-app.listen(3000, function() {
-    console.log("App running on port 3000!");
-  });
-  
+var port = process.env.PORT || 3000;
+app.listen(port, function(error){
+    if (error) throw error;
+    console.log('Connected.')
+});
